@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap);
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family: "Poppins", sans-serif;
+}
+.Main-Section{
+    height: 100vh;
+    width:100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+}
+.Main-Section .Loading-Animation{
+    position: absolute;
+    top:200px;
+    animation: Color-Change 10s linear infinite;
+}
+.Main-Section .Loading-Animation span{
+    position: absolute;
+    height:25px;
+    width: 8px;
+    background-color: #fff ;
+    border-radius: 10px;
+    transform: rotate(calc(360deg/20 * var(--i))) ;
+    transform-origin: 0 125px;
+    animation: Bulb-Animation 1.9s ease-in-out infinite;
+    animation-delay: calc(50ms * var(--i));
+}
+.Main-Section .Loading-Animation p{
+    color: #fff;
+    position: absolute;
+    top:110px;
+    left: -55px;
+    font-size: 1.7rem;
+    animation: Loading-Text 1.9s ease-in-out infinite;
+}
+@keyframes Bulb-Animation{
+    0%,50%{background-color: #fff; box-shadow: none;}
+    50.1%,100%{background-color:blue; box-shadow: 0 0 15px blue,
+                                                    0 0 30px blue   ;}
+}
+@keyframes Loading-Text{ 
+    0%,50%{color: #fff; text-shadow: none;}
+    50.1%,100%{color:blue; text-shadow: 0 0 15px blue,
+                                                0 0 30px blue   ;}
+}
+@keyframes Color-Change{
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
